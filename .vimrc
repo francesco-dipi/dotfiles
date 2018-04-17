@@ -18,4 +18,9 @@ set incsearch
 " highlight search result
 set hlsearch
 
+" syntax highlighting
+syntax on
+
+" use a dark background
+set background=dark
 
