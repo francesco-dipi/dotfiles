@@ -9,7 +9,8 @@ alias grep="grep --color"
 alias egrep="egrep --color"
 alias fgrep="fgrep --color"
 
-alias ackj="ack-grep --java"
+alias ack="command -v ack-grep > /dev/null 2>&1 && ack-grep || ack"
+alias ackj="ack --java"
 
 alias findc="find . -exec ls --color -d {} \;"
 
@@ -58,7 +59,7 @@ function timer_start {
 }
 function timer_stop {
   timer_show=$((SECONDS - timer))
-  # show label only if timer is grater than 0 seconds:
+  # show label only if timer is grater than 3 seconds:
   [[ $timer_show -ge 3 ]] && timer_label="$(tput setf 3)[last: $(tput bold)${timer_show}$(tput sgr0)$(tput setf 3)s]$(tput sgr0)  " || timer_label=""
   unset timer
 }
