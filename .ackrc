@@ -1,0 +1,26 @@
+#Always sort the files
+--sort-files
+
+# Always color, even if piping to a another program
+--color
+
+# Use "less -r" as my pager
+#--pager=less -r
+
+# New types:
+# gradle:
+--type-set=gradle=.gradle
+# groovy:
+--type-set=groovy=.groovy
+# xtend:
+--type-set=xtend=.xtend
+# velocity
+--type-set=velocity=.vm
+# typescript
+--type-set=typescript=.ts
+# Extend types:
+# add xtend source to java type:
+--type-add=java=.xtend
+# css/scss
+--type-add=css=.css .scss
+
