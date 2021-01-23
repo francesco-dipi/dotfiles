@@ -3,6 +3,10 @@
 # In history, skip lines starting with a space and duplicates:
 export HISTCONTROL=ignoreboth
 
+# Use vim as editor
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
 # Aliases:
 
 alias grep="grep --color"
