@@ -33,6 +33,15 @@ filetype plugin indent on
 " enable rainbow parentheses
 let g:rainbow_active = 1
 
+" taken from https://jeffkreeftmeijer.com/vim-number/
+" 'smart' relative/absolute line number
+:set number relativenumber
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+:augroup END
+
 " taken from https://stackoverflow.com/a/38258720,
 " set paste mode when pasting text
 function! WrapForTmux(s)
@@ -54,4 +63,6 @@ function! XTermPasteBegin()
 endfunction
 
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+packloadall
 
