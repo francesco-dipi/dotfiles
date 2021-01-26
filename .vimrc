@@ -35,12 +35,12 @@ let g:rainbow_active = 1
 
 " taken from https://jeffkreeftmeijer.com/vim-number/
 " 'smart' relative/absolute line number
-:set number relativenumber
-:augroup numbertoggle
-:  autocmd!
-:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-:augroup END
+set number relativenumber
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
 
 " taken from https://stackoverflow.com/a/38258720,
 " set paste mode when pasting text
