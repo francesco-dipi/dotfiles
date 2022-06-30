@@ -36,6 +36,8 @@ alias fact="curl -s randomfunfacts.com | grep '#FFFFFF' |  sed  's#.*<strong><i>
 
 # Functions:
 
+cheat() { wget -O - https://cht.sh/"$@" -q; }
+
 weather() { wget -O - http://wttr.in/"${1:-roma}" -q | head -n -1; }
 
 stopwatch() { date1=$(date +%s); while true; do echo -ne "$(date -u --date @$(($(date +%s) - date1)) +%H:%M:%S)\r"; sleep 0.1; done }
