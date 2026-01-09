@@ -32,6 +32,8 @@ alias ports='netstat -tulanp'
 
 alias psgrep="ps aux | grep "
 
+alias cutw="tr -s ' ' | cut -d ' ' "
+
 alias fact="curl -s randomfunfacts.com | grep '#FFFFFF' |  sed  's#.*<strong><i>\(.*\)</i></strong>.*#\1#'"
 
 # Functions:
