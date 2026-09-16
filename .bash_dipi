@@ -36,6 +36,8 @@ alias cutw="tr -s ' ' | cut -d ' ' "
 
 alias fact="curl -s randomfunfacts.com | grep '#FFFFFF' |  sed  's#.*<strong><i>\(.*\)</i></strong>.*#\1#'"
 
+alias wakenas="wol 00:08:9b:f8:a4:8b"
+
 # Functions:
 
 cheat() { wget -O - https://cht.sh/"$@" -q; }
@@ -52,6 +54,12 @@ highlight () { grep  -E "$1|$" "${@:2}"; }
 
 fexec() {  if [ $# -lt 2 ]; then echo "Usage: fexec FILE_REGEX COMMAND"; else find . -iname "$1" -exec "$2" {} \;; fi }
 fexecall() {  if [ $# -lt 2 ]; then echo "Usage: fexecall FILE_REGEX COMMAND"; else find . -iname "$1" -exec "$2" {} \+; fi }
+
+# Taken from: https://gist.github.com/GNOMES/6bf65926648e260d8023aebb9ede9573
+dc() { cd "${PWD%/$1/*}/$1/" 2>/dev/null || echo "Directory not found: $1"; }
+# Function to add tab completion to dc
+_dc_complete() { IFS='/' read -ra dirs <<<"$(pwd)"; local dir_names=("${dirs[@]:1}"); COMPREPLY=(); for dir in "${dir_names[@]}"; do [[ $dir == ${COMP_WORDS[COMP_CWORD]}* ]] && COMPREPLY+=("$dir"); done; }
+complete -F _dc_complete dc
 
 vrex() { if [ $# -lt 1 ]; then echo "Usage: vrex REGEX [PATH]"; else vim +/"$1" "$(egrep -rl "$1" "${2:-.}")"; fi }
 ovim() { if [ $# -lt 1 ]; then echo "Usage: ovim REGEX"; else fexec "$1" vim; fi }
